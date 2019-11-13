@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Blackjack 2.0</title>
+
+
+        <!-- Bootstrap 4 CDN -->
+        <meta name = "viewport" content = "width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <!--My Style Sheet-->
+        <link rel = "stylesheet" text = "text/css" href = "DiceGameStyles.css">
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-4 gameKeyBoxStyle">
+                    <!--Key of Dice Sizes-->
+                    <h1 class = "ingameInstructionsKeyTitle">Dice Selections</h1>
+                    <ol>
+                        <li>4-Sided</li>
+                        <li>6-Sided</li>
+                        <li>8-Sided</li>
+                        <li>10-Sided</li>
+                        <li>12-Sided</li>
+                        <li>20-Sided</li>
+                    </ol>
+                </div>
+                <div class = "col-4">
+                    <!--Open Space for User Prompt-->
+                </div>
+                <div class = "col-4 gameKeyBoxStyle">
+                    <!--Key of Math Operators-->
+                    <h1 class = "ingameInstructionsKeyTitle">Math Operators</h1>
+                    <ol>
+                        <li>Addition</li>
+                        <li>Subtraction</li>
+                        <li>Multiplication</li>
+                    </ol>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-4">
+
+                </div>
+                <div class = "col-4 gameScoreDisplays" id = "computerScoreDiv">
+                    <!--Display Computer Score-->
+                </div>
+                <div class = "col-4">
+
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-4">
+
+                </div>
+                <div class = "col-4 gameScoreDisplays" id = "userScoreDiv">
+                    <!--Display User Score-->
+                </div>
+                <div class = "col-4">
+
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-2">
+
+                </div>
+                <div class = "col-3">
+                    <a href = "DiceGameActiveGame.html" class = "btn btn-danger btn-block">Challenge a Friend</a>
+                </div>
+                <div class = "col-2">
+
+                </div>
+                <div class = "col-3">
+                    <a href = "DiceGameActiveGame.html" class = "btn btn-danger btn-block">Reset</a>
+                </div>
+                <div class = "col-2">
+
+                </div>
+            </div>
+        </div>
+
+        <script src = "DiceGame.js" type = "text/javascript"></script>
+    </body>
+</html>

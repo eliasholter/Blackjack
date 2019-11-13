@@ -1,0 +1,93 @@
+/* General Page Styles */
+
+html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(diceBackground.gif);
+    background-size: cover;
+}
+
+/* Classes */
+.menuButtonStyling{
+    padding-bottom: 20%;
+}
+
+
+.instructionBoxStyle{
+    background-color: white;
+    border-radius: 25px;
+    margin: 25px;
+}
+
+.ingameInstructionsKeyTitle{
+    font-size: 32px;
+    color: red;
+    text-decoration: underline;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+.gameKeyBoxStyle{
+    background-color: white;
+    border-radius: 25px;
+    /*margin: 10px;*/
+}
+
+.gameScoreDisplays{
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+/* ID Tags*/
+
+#mainTitle{
+    font-size: 108px;
+    color: red;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+#instructionsTitle{
+    font-size: 48px;
+    color: red;
+    text-decoration: underline;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+#instructionsListText{
+    font-size: 30px;
+    color: black;
+    word-wrap: break-word;
+}
+
+#computerScoreDiv{
+    font-size: 60px;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+#userScoreDiv{
+    font-size: 60px;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+}
