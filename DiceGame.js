@@ -6,86 +6,91 @@ function rollTheDice(diceSides){
     return rollValue;
 }
 
-function setComputerDieValue(){
+function operateOnScore(operatorNumValue, newRoll){
+    if(operatorNumValue === 1){
+        userValue += newRoll;
+        console.log("user score: " + userValue);
+    }
+    else if(operatorNumValue === 2){
+        userValue -= newRoll;
+        console.log("user score: " + userValue);
+    }
+    else{
+        userValue *= newRoll;
+        console.log("user score: " + userValue);
+    }
+
+    return userValue;
+}
+
+function setComputerStartValue(){
     let computerValue = Math.floor((Math.random() * 100) + 1);
 
     return computerValue;
 }
 
-function letsPlayAGame(playerScore, valueToCheckAgainst){
-    let ableToRoll = 6;
+function setUserStartValue(){
+    let userValue = Math.floor((Math.random() * 20) + 1);
 
-    while(ableToRoll !== 0){
-        let validOperatorSelection = false;
+    return userValue;
+}
 
-        // Get user input for dice sizes selection and roll //
-        let newDiceChoice = prompt("What size dice would you like to roll? (Please enter a number 1-6 from the list on your left)");
-        newDiceChoice = parseInt(newDiceChoice);
-        let newDiceRoll = rollTheDice(diceChoices[newDiceChoice - 1]);
+function challengeAFriend(){
+    turnsToPlay = 6;
+    userValue = originalUserValue;
+    document.getElementById("userScoreDiv").innerHTML = "";
+    document.getElementById("userScoreDiv").innerHTML = userValue;
+    document.getElementById("userInputInstructions").innerHTML = "";
+    document.getElementById("userInputInstructions").innerHTML = "Please select your dice to roll from the list on the left:";
+}
 
-        console.log(newDiceRoll);
+function letsPlayARound(playerRoll){
+    document.getElementById("currentRollDiv").innerHTML = "";
+    document.getElementById("currentRollDiv").innerHTML = playerRoll;
+    console.log(playerRoll);
+    // Allow user to decide what mathematical operator to use //
+    let operatorChoice = prompt("You rolled "+ playerRoll +" please enter a number 1-3 to select your operator (1-Addition 2-Subtraction 3-Multiplication");
+    operatorChoice = parseInt(operatorChoice);
 
-        // Allow user to decide what mathematical operator to use //
-        let operatorChoice = prompt("How would you like to operate upon the orginal number? (Please enter a number 1-3 from your left)");
-        operatorChoice = parseInt(operatorChoice);
+ 
+    // Adjust score based upon desired operator //
+    let updatedValue = operateOnScore(operatorChoice, playerRoll);
 
-        while(validOperatorSelection === false){
-            if(operatorChoice === 1){
-                playerScore += newDiceRoll;
-                console.log("user score: " + playerScore);
-                validOperatorSelection = true;
-            }
-            else if(operatorChoice === 2){
-                playerScore -= newDiceRoll;
-                console.log("user score: " + playerScore);
-                validOperatorSelection = true;
-            }
-            else if(operatorChoice === 3){
-                playerScore *= newDiceRoll;
-                console.log("user score: " + playerScore);
-                validOperatorSelection = true;
-            }
-            else{
-                operatorChoice = prompt("Oops, looks like that's not a valid operator! Pleaes make a valid selection of how would you like to operate upon the orginal number? (Please enter a number 1-3 from your left)");
-                operatorChoice = parseInt(operatorChoice);
-            }
+    document.getElementById("userScoreDiv").innerHTML = '';
+
+    let userScoreToAdd =  document.createElement("userScoreToAdd");
+    userScoreToAdd.innerHTML = updatedValue;
+    document.getElementById("userScoreDiv").appendChild(userScoreToAdd);
+
+    turnsToPlay --;
+
+    if(turnsToPlay === 0){
+        // Determine Game Results
+        if(updatedValue < goalValue){
+            let finalScorePercent = ((updatedValue/ goalValue) * 100);
+            document.getElementById("userInputInstructions").innerHTML = "Your score was " + finalScorePercent + "% out of 100%!";
         }
-        document.getElementById("userScoreDiv").innerHTML = '';
-
-        let userScoreToAdd =  document.createElement("userScoreToAdd");
-        userScoreToAdd.innerHTML = playerScore;
-        document.getElementById("userScoreDiv").appendChild(userScoreToAdd);
-
-        ableToRoll -= 1;
+        else if(updatedValue == goalValue){
+            document.getElementById("userInputInstructions").innerHTML = "You got a perfect score!";
+        }
+        else{
+            document.getElementById("userInputInstructions").innerHTML = "BUST! Better luck next time!";
+        }
     }
-
-    if(playerScore <= valueToCheckAgainst){
-        let finalScorePercent = ((playerScore / valueToCheckAgainst) * 100);
-        alert("Your score was " + finalScorePercent + "% out of 100%!");
-    }
-    else{
-        alert("BUST! Better luck next time!");
-    }
-
 }
 
 
-let diceChoices = [4, 6, 8, 10, 12, 20];
-let originalUserInput = prompt("Select a dice to roll for your starting value (Please enter a number 1-6 from the list on your left):");
-let goalValue = setComputerDieValue();
-goalValue = parseInt(goalValue);
-
-console.log(goalValue);
+// Initialize the Game
+let turnsToPlay = 6;
+let goalValue = setComputerStartValue();
 
 document.getElementById("computerScoreDiv").innerHTML = goalValue;
+console.log(goalValue);
 
+let userValue = setUserStartValue();
+let originalUserValue = userValue;
 
-originalUserInput = parseInt(originalUserInput);
+document.getElementById("userScoreDiv").innerHTML = userValue;
+console.log(userValue);
 
-let originalRoll = rollTheDice(diceChoices[originalUserInput-1]);
-console.log("original roll is: " + originalRoll);
-
-
-
-document.getElementById("userScoreDiv").innerHTML = originalRoll;
-letsPlayAGame(originalRoll, goalValue);
+document.getElementById("userInputInstructions").innerHTML = "Please select your dice to roll from the list on the left:";

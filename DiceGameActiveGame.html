@@ -16,31 +16,24 @@
         <link rel = "stylesheet" text = "text/css" href = "DiceGameStyles.css">
     </head>
     <body>
+        <p style="display: none;" id="holder"></p>
         <div class = "container">
-            <div class = "row">
+            <div class = "row" id="topOfScreenSpacing">
                 <div class = "col-4 gameKeyBoxStyle">
                     <!--Key of Dice Sizes-->
                     <h1 class = "ingameInstructionsKeyTitle">Dice Selections</h1>
-                    <ol>
-                        <li>4-Sided</li>
-                        <li>6-Sided</li>
-                        <li>8-Sided</li>
-                        <li>10-Sided</li>
-                        <li>12-Sided</li>
-                        <li>20-Sided</li>
-                    </ol>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(4))" id = "side4">4-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(6))" id = "side6">6-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(8))" id = "side8">8-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(10))" id = "side10">10-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(12))" id = "side12">12-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(20))" id = "side20">20-Sided</button>
                 </div>
                 <div class = "col-4">
-                    <!--Open Space for User Prompt-->
+
                 </div>
-                <div class = "col-4 gameKeyBoxStyle">
-                    <!--Key of Math Operators-->
-                    <h1 class = "ingameInstructionsKeyTitle">Math Operators</h1>
-                    <ol>
-                        <li>Addition</li>
-                        <li>Subtraction</li>
-                        <li>Multiplication</li>
-                    </ol>
+                <div class = "col-4 gameKeyBoxStyle" id = "userInputInstructions">
+                    <!--Open Space for User Prompt-->
                 </div>
             </div>
             <div class = "row">
@@ -58,6 +51,18 @@
                 <div class = "col-4">
 
                 </div>
+                <div class = "col-4 gameKeyBoxStyle">
+                    <!--Center Label Computer Score-->
+                    <h5 class = "scoreLabelStyling">Computer Score</h5>
+                </div>
+                <div class = "col-4">
+
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-4" id = "currentRollDiv">
+                    <!--Current Die Roll Value-->
+                </div>
                 <div class = "col-4 gameScoreDisplays" id = "userScoreDiv">
                     <!--Display User Score-->
                 </div>
@@ -66,11 +71,24 @@
                 </div>
             </div>
             <div class = "row">
+                <div class = "col-4 gameKeyBoxStyle">
+                    <!--Center Label Current Die Roll-->
+                    <h5 id = "currentRollLabel">Current Die Roll</h5>
+                </div>
+                <div class = "col-4 gameKeyBoxStyle">
+                    <!--Center Label User Score-->
+                    <h5 class = "scoreLabelStyling">Player Score</h5>
+                </div>
+                <div class = "col-4">
+
+                </div>
+            </div>
+            <div class = "row gameContinuationButtonRow"> 
                 <div class = "col-2">
 
                 </div>
                 <div class = "col-3">
-                    <a href = "DiceGameActiveGame.html" class = "btn btn-danger btn-block">Challenge a Friend</a>
+                    <button type = "button" class = "btn btn-danger btn-block" onclick="challengeAFriend()" id = "challengeAFriend">Challenge a Friend</button>
                 </div>
                 <div class = "col-2">
 
@@ -79,6 +97,17 @@
                     <a href = "DiceGameActiveGame.html" class = "btn btn-danger btn-block">Reset</a>
                 </div>
                 <div class = "col-2">
+
+                </div>
+            </div>
+            <div class = "row gameContinuationButtonRow"> 
+                <div class = "col-4">
+
+                </div>
+                <div class = "col-4">
+                    <a href = "DiceGameHome.html" class = "btn btn-danger btn-block">Back to Main Menu</a>
+                </div>
+                <div class = "col-4">
 
                 </div>
             </div>
