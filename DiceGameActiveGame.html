@@ -16,26 +16,40 @@
         <link rel = "stylesheet" text = "text/css" href = "DiceGameStyles.css">
     </head>
     <body>
-        <p style="display: none;" id="holder"></p>
         <div class = "container">
-            <div class = "row" id="topOfScreenSpacing">
+            <div class = "row" id = "topOfScreenSpacing">
                 <div class = "col-4 gameKeyBoxStyle">
-                    <!--Key of Dice Sizes-->
+                    <!--Dice Sizes-->
                     <h1 class = "ingameInstructionsKeyTitle">Dice Selections</h1>
-                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(4))" id = "side4">4-Sided</button>
-                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(6))" id = "side6">6-Sided</button>
-                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(8))" id = "side8">8-Sided</button>
-                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(10))" id = "side10">10-Sided</button>
-                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(12))" id = "side12">12-Sided</button>
-                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollTheDice(20))" id = "side20">20-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "rollTheDice(4)" id = "side4">4-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "rollTheDice(6)" id = "side6">6-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "rollTheDice(8)" id = "side8">8-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "rollTheDice(10)" id = "side10">10-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "rollTheDice(12)" id = "side12">12-Sided</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "rollTheDice(20)" id = "side20">20-Sided</button>
                 </div>
-                <div class = "col-4">
-
+                <div class = "col-4 gameKeyBoxStyle">
+                    <!--Operator Selections-->
+                    <h1 class = "ingameInstructionsKeyTitle">Operator Selections</h1>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollValue, 1)" id = "addition">Add</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollValue, 2)" id = "subtraction">Subtract</button>
+                    <button type = "button" class = "btn btn-danger btn-block gameButtonStyling" onclick = "letsPlayARound(rollValue, 3)" id = "multiplication">Multiply</button>
                 </div>
                 <div class = "col-4 gameKeyBoxStyle" id = "userInputInstructions">
                     <!--Open Space for User Prompt-->
                 </div>
             </div>
+            <!-- <div class = "row" id = "submitButton"> 
+                <div class = "col-5">
+
+                </div>
+                <div class = "col-2">
+                    <button type = "button" class = "btn btn-danger btn-block" onclick= "letsPlayARound(rollValue, operatorType)" id = "challengeAFriend">Display New Total</button>
+                </div>
+                <div class = "col-5">
+
+                </div>
+            </div> -->
             <div class = "row">
                 <div class = "col-4">
 
@@ -53,7 +67,7 @@
                 </div>
                 <div class = "col-4 gameKeyBoxStyle">
                     <!--Center Label Computer Score-->
-                    <h5 class = "scoreLabelStyling">Computer Score</h5>
+                    <h5 class = "displayLabelStyling">Computer Score</h5>
                 </div>
                 <div class = "col-4">
 
@@ -61,26 +75,27 @@
             </div>
             <div class = "row">
                 <div class = "col-4" id = "currentRollDiv">
-                    <!--Current Die Roll Value-->
+                    <!--Display Current Die Roll Value-->
                 </div>
                 <div class = "col-4 gameScoreDisplays" id = "userScoreDiv">
                     <!--Display User Score-->
                 </div>
-                <div class = "col-4">
-
+                <div class = "col-4" id = "rollsRemainingDiv">
+                    <!--Display Rolls Rolls Remaining-->
                 </div>
             </div>
             <div class = "row">
                 <div class = "col-4 gameKeyBoxStyle">
                     <!--Center Label Current Die Roll-->
-                    <h5 id = "currentRollLabel">Current Die Roll</h5>
+                    <h5 class = "displayLabelStyling">Current Die Roll</h5>
                 </div>
                 <div class = "col-4 gameKeyBoxStyle">
                     <!--Center Label User Score-->
-                    <h5 class = "scoreLabelStyling">Player Score</h5>
+                    <h5 class = "displayLabelStyling">Player Score</h5>
                 </div>
-                <div class = "col-4">
-
+                <div class = "col-4 gameKeyBoxStyle">
+                    <!--Center Label Rolls Remaining-->
+                    <h5 class = "displayLabelStyling">Rolls Remaining</h5>
                 </div>
             </div>
             <div class = "row gameContinuationButtonRow"> 
@@ -88,7 +103,7 @@
 
                 </div>
                 <div class = "col-3">
-                    <button type = "button" class = "btn btn-danger btn-block" onclick="challengeAFriend()" id = "challengeAFriend">Challenge a Friend</button>
+                    <button type = "button" class = "btn btn-danger btn-block" onclick= "challengeAFriend()" id = "challengeAFriend">Challenge a Friend</button>
                 </div>
                 <div class = "col-2">
 

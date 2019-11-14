@@ -41,7 +41,7 @@ body{
 }
 
 .gameScoreDisplays{
-    background-color: red;
+    background-color: white;
     border-radius: 50%;
 }
 
@@ -50,7 +50,7 @@ body{
     margin-bottom: 5px;
 }
 
-.scoreLabelStyling{
+.displayLabelStyling{
     color: black;
     text-align: center;
     font-family: Impact, Charcoal, sans-serif;
@@ -114,6 +114,17 @@ body{
     font-family: Impact, Charcoal, sans-serif;
 }
 
+#rollsRemainingDiv{
+    font-size: 60px;
+    color: black;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+    background-color: white;
+    border-radius: 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 #currentRollLabel{
     color: black;
     text-align: center;
@@ -129,4 +140,9 @@ body{
 
 #topOfScreenSpacing{
     margin-top: 40px;
+}
+
+#submitButton{
+    margin-top: 40px;
+    margin-bottom: 40px;
 }

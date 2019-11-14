@@ -1,26 +1,31 @@
+// Initialize the Game //
+let turnsToPlay = 6;
+let rollValue = 0;
+let operatorType = 0;
+let goalValue = setComputerStartValue();
+
+document.getElementById("computerScoreDiv").innerHTML = goalValue;
+
+let userValue = setUserStartValue();
+let originalUserValue = userValue;
+
+document.getElementById("userScoreDiv").innerHTML = userValue;
+
+document.getElementById("userInputInstructions").innerHTML = "Please select your dice to roll from the list on the left:";
+
+
+
+// Functions //
 function rollTheDice(diceSides){
-    let rollValue = 0;
 
     rollValue = Math.floor(Math.random() * (diceSides)) + 1;
 
-    return rollValue;
-}
-
-function operateOnScore(operatorNumValue, newRoll){
-    if(operatorNumValue === 1){
-        userValue += newRoll;
-        console.log("user score: " + userValue);
-    }
-    else if(operatorNumValue === 2){
-        userValue -= newRoll;
-        console.log("user score: " + userValue);
-    }
-    else{
-        userValue *= newRoll;
-        console.log("user score: " + userValue);
-    }
-
-    return userValue;
+    document.getElementById("currentRollDiv").innerHTML = "";
+    document.getElementById("currentRollDiv").innerHTML = rollValue;
+    document.getElementById("rollsRemainingDiv").innerHTML = "";
+    document.getElementById("rollsRemainingDiv").innerHTML = turnsToPlay - 1;
+    document.getElementById("userInputInstructions").innerHTML = "";
+    document.getElementById("userInputInstructions").innerHTML = "Please select your operator to use on your score from the list in the center:";
 }
 
 function setComputerStartValue(){
@@ -38,29 +43,39 @@ function setUserStartValue(){
 function challengeAFriend(){
     turnsToPlay = 6;
     userValue = originalUserValue;
+    document.getElementById("currentRollDiv").innerHTML = "";    
+    document.getElementById("rollsRemainingDiv").innerHTML = "";
     document.getElementById("userScoreDiv").innerHTML = "";
     document.getElementById("userScoreDiv").innerHTML = userValue;
     document.getElementById("userInputInstructions").innerHTML = "";
     document.getElementById("userInputInstructions").innerHTML = "Please select your dice to roll from the list on the left:";
 }
 
-function letsPlayARound(playerRoll){
-    document.getElementById("currentRollDiv").innerHTML = "";
-    document.getElementById("currentRollDiv").innerHTML = playerRoll;
-    console.log(playerRoll);
-    // Allow user to decide what mathematical operator to use //
-    let operatorChoice = prompt("You rolled "+ playerRoll +" please enter a number 1-3 to select your operator (1-Addition 2-Subtraction 3-Multiplication");
-    operatorChoice = parseInt(operatorChoice);
+function letsPlayARound(userRoll, operatorNumValue){
+    operatorNumValue = parseInt(operatorNumValue);
+    
+    // Update current score based upon user operation selection //
+    if(operatorNumValue === 1){
+        userValue += userRoll;
+    }
+    else if(operatorNumValue === 2){
+        userValue -= userRoll;
+    }
+    else{
+        userValue *= userRoll;
+    }
 
- 
-    // Adjust score based upon desired operator //
-    let updatedValue = operateOnScore(operatorChoice, playerRoll);
+    let updatedValue = userValue;
 
     document.getElementById("userScoreDiv").innerHTML = '';
 
+    // Write new score to display area //
     let userScoreToAdd =  document.createElement("userScoreToAdd");
     userScoreToAdd.innerHTML = updatedValue;
     document.getElementById("userScoreDiv").appendChild(userScoreToAdd);
+    document.getElementById("userInputInstructions").innerHTML = "";
+    document.getElementById("userInputInstructions").innerHTML = "Please select your dice to roll from the list on the left:";
+
 
     turnsToPlay --;
 
@@ -80,17 +95,3 @@ function letsPlayARound(playerRoll){
 }
 
 
-// Initialize the Game
-let turnsToPlay = 6;
-let goalValue = setComputerStartValue();
-
-document.getElementById("computerScoreDiv").innerHTML = goalValue;
-console.log(goalValue);
-
-let userValue = setUserStartValue();
-let originalUserValue = userValue;
-
-document.getElementById("userScoreDiv").innerHTML = userValue;
-console.log(userValue);
-
-document.getElementById("userInputInstructions").innerHTML = "Please select your dice to roll from the list on the left:";
